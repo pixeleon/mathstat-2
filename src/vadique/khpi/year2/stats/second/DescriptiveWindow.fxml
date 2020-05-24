@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@../second/app.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vadique.khpi.year2.stats.second.DescriptiveController">
+   <left>
+      <VBox alignment="CENTER" prefHeight="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tableViewVars" editable="true" prefHeight="400.0" prefWidth="150.0">
+              <columns>
+                <TableColumn fx:id="tableColumnX" prefWidth="75.0" text="X" />
+                <TableColumn fx:id="tableColumnY" prefWidth="75.0" text="Y" />
+              </columns>
+            </TableView>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </left>
+   <top>
+      <HBox alignment="CENTER" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="buttonAdd" mnemonicParsing="false" onAction="#doAdd" text="ADD PAIR" />
+            <Button fx:id="buttonRemove" mnemonicParsing="false" onAction="#doRemove" text="REMOVE PAIR" />
+            <Button mnemonicParsing="false" onAction="#doClear" prefWidth="75.0" text="CLEAR" />
+            <Button mnemonicParsing="false" onAction="#doAnalyze" prefHeight="25.0" text="ANALYZE EVERYTHING" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <bottom>
+      <FlowPane hgap="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="47.0" spacing="5.0">
+               <children>
+                  <Label text="xMin:" />
+                  <TextField fx:id="textFieldXMin" prefHeight="25.0" />
+                  <Label text="xMax:" />
+                  <TextField fx:id="textFieldXMax" prefHeight="25.0" />
+                  <Label text="xRange:" />
+                  <TextField fx:id="textFieldXRange" prefHeight="25.0" />
+                  <Label text="xMode:" />
+                  <TextField fx:id="textFieldXMode" prefHeight="25.0" />
+                  <Label text="xMedian:" />
+                  <TextField fx:id="textFieldXMedian" prefHeight="25.0" />
+                  <Label text="xMean:" />
+                  <TextField fx:id="textFieldXMean" prefHeight="25.0" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox spacing="10.0">
+               <children>
+                  <Label text="xVariance:" />
+                  <TextField fx:id="textFieldXVariance" prefHeight="25.0" />
+                  <Label text="xStandaradDeviation:" />
+                  <TextField fx:id="textFieldXDeviation" prefHeight="25.0" prefWidth="135.0" />
+                  <Label text="xKurtosis:" />
+                  <TextField fx:id="textFieldXKurtosis" prefHeight="25.0" />
+                  <Label text="xSkewness:" />
+                  <TextField fx:id="textFieldXSkewness" prefHeight="25.0" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox spacing="10.0">
+               <children>
+                  <Label text="r:" />
+                  <TextField fx:id="textFieldCorrCoeff" editable="false" prefHeight="25.0" />
+                  <Label text="r^2:" />
+                  <TextField fx:id="textFieldDetermCoeff" editable="false" prefHeight="25.0" />
+                  <Label text="b0:" />
+                  <TextField fx:id="textFieldRegrConst" editable="false" prefHeight="25.0" />
+                  <Label text="b1:" />
+                  <TextField fx:id="textFieldRegrCoeff" editable="false" prefHeight="25.0" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <Label fx:id="labelPredY" text="predY =" />
+         </children>
+      </FlowPane>
+   </bottom>
+   <right>
+      <LineChart fx:id="lineChartRegrLine" legendVisible="false" title="Regression Line" BorderPane.alignment="CENTER">
+        <xAxis>
+          <NumberAxis label="X" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Y" side="LEFT" />
+        </yAxis>
+      </LineChart>
+   </right>
+   <center>
+      <LineChart fx:id="lineChartXPolygon" legendVisible="false" title="X Polygon" BorderPane.alignment="CENTER">
+        <xAxis>
+          <NumberAxis label="Xi" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="n(Xi)" side="LEFT" />
+        </yAxis>
+      </LineChart>
+   </center>
+</BorderPane>
