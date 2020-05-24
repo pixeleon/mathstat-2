@@ -1,2 +1,2 @@
 # mathstat-2
- Maths Statistics. Lab 1. Descriptive Statistics
+ Maths Statistics. Lab 2. Descriptive Statistics
