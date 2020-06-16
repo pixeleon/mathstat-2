@@ -81,6 +81,7 @@ public class DescriptiveController implements Initializable {
 				new VarsPair(67, 43.8)
 				);
 		initTable();
+		
 	}
 	
 	private void initList() {
@@ -353,7 +354,9 @@ public class DescriptiveController implements Initializable {
 	
 	private void updateGaph() {
 		lineChartRegrLine.getData().clear();
+
 		XYChart.Series<Number, Number> regrSeries = new XYChart.Series<>();
+		
 		regrSeries.getData().add(new XYChart.Data<>(getXMin(), predY(getXMin())));
 		regrSeries.getData().add(new XYChart.Data<>(getXMax(), predY(getXMax())));
 		lineChartRegrLine.getData().add(regrSeries);
@@ -369,6 +372,13 @@ public class DescriptiveController implements Initializable {
         axisX.setLowerBound(getXMin()-hX);
         axisX.setUpperBound(getXMax()+hX);
         axisX.setTickUnit(hX);
+        double hY = getYRange() / obsList.size();
+        NumberAxis axisY = (NumberAxis) lineChartRegrLine.getYAxis();
+        axisY.setAutoRanging(false);
+        axisY.setLowerBound(getYMin()-hY);
+        axisY.setUpperBound(getYMax()+hY);
+        axisY.setTickUnit(hY);
+        
 	}
 	
 	private double predY(double x) {
